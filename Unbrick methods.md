@@ -186,3 +186,44 @@ Details have been put up on my XDA DevDB main post.
 ```
 
 * Click [here](https://forum.xda-developers.com/moto-e/general/unbrick-hard-bricked-moto-e-t3599214) to view.
+
+# Method 4 (thor2 from WDRT):
+
+* I'm going to give you the instructions but you shouldn't try the thor2
+
+```
+Warning: You will loose your IMEI and get a new IMEI by this method. You need to resolve the IMEI by yourself as both phones will end up with same IMEI.
+```
+
+## Requirements for this method:
+* Windows Device Recovery Tool (WDRT)
+* the Emergency Files from Microsoft Lumia 435 RM-1071
+* the FFU file from Microsoft Lumia 435 RM-1071
+* Drivers for QHSUSB_BULK
+* Motorola Moto E 2014 bricked in edl mode 
+
+## Steps to unbrick:
+* install Windows Device Recovery Tool
+* download the the Emergency Files from Microsoft Lumia 435 RM-1071 and the FFU file from Microsoft Lumia 435 RM-1071
+* now connect your Motorola Moto E 2014 to PC
+* Now, launch/open cmd on your PC
+* type the command below and press the enter key:
+
+```
+thor2 -mode emergency -hexfile MPRG8x12_fh.ede -edfile RM1071_fh.edp
+```
+
+* wait until you start in flash mode
+* and once it boots into flash mode, enter this command:
+
+```
+thor2 -mode uefiflash -ffuflash RM-1071.ffu -do_full_nvi_update -do_factory_reset
+thor2 -mode rnd -bootnormalmode
+```
+
+* Reboot your phone with:
+
+```
+thor2 -mode rnd -bootnormalmode
+```
+Done! Windows Phone 8.1 should boot.
