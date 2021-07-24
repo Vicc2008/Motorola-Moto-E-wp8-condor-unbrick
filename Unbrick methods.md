@@ -218,7 +218,6 @@ thor2 -mode emergency -hexfile MPRG8x12_fh.ede -edfile RM1071_fh.edp
 
 ```
 thor2 -mode uefiflash -ffuflash RM-1071.ffu -do_full_nvi_update -do_factory_reset
-thor2 -mode rnd -bootnormalmode
 ```
 
 * Reboot your phone with:
